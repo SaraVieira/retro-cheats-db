@@ -12,6 +12,7 @@
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
     "meilisearch": "^0.30.0",
     "uuid": "^9.0.0"
   }
