@@ -1,22 +1,19 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import React, { useState } from "react";
 
 import {
   InstantSearch,
   SearchBox,
   InfiniteHits,
-  Highlight,
   RefinementList,
   ClearRefinements,
   Configure,
 } from "react-instantsearch-hooks-web";
+import { Game } from "../components/Game";
 import { searchClient } from "../utils/meili";
-import type { Hit } from "../utils/meili";
-import { Badge } from "../components/Badge";
 
 const Home: NextPage = () => {
-  const [touched, setTouched] = useState("");
+  const [touched, setTouched] = useState(false);
   return (
     <div className="ais-InstantSearch">
       <InstantSearch indexName="cheats" searchClient={searchClient}>
@@ -39,7 +36,7 @@ const Home: NextPage = () => {
           </div>
           <SearchBox
             placeholder="Search for your favorite game"
-            onChangeCapture={setTouched}
+            onChangeCapture={() => setTouched(true)}
             classNames={{
               submitIcon: "hidden",
               loadingIcon: "hidden",
@@ -72,7 +69,7 @@ const Home: NextPage = () => {
                 limit={50}
               />
             </div>
-            <InfiniteHits hitComponent={Hit} />
+            <InfiniteHits hitComponent={Game} />
           </div>
         )}
       </InstantSearch>
@@ -80,30 +77,4 @@ const Home: NextPage = () => {
   );
 };
 
-const Hit = ({ hit }: { hit: Hit }) => {
-  const newHit = {
-    objectID: hit.id,
-    ...hit,
-  };
-  return (
-    <div
-      key={newHit.id}
-      onClick={() => console.log(newHit)}
-      className="relative flex space-x-3 rounded-lg border border-gray-800 shadow shadow-cyan-500/20 bg-[#1a1c1c] px-6 py-5 focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 hover:border-gray-600 h-full grow"
-    >
-      <div className="min-w-0 flex-1">
-        <Link href={newHit.id} className="focus:outline-none">
-          <span className="absolute inset-0" aria-hidden="true" />
-          <p className="text-sm font-medium text-gray-50">
-            <Highlight attribute="game" hit={newHit} />
-          </p>
-          <p className="truncate text-sm text-gray-500">
-            <Highlight attribute="console" hit={newHit} />
-          </p>
-          <Badge game={newHit} />
-        </Link>
-      </div>
-    </div>
-  );
-};
 export default Home;
