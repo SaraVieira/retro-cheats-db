@@ -1,9 +1,12 @@
 import { GetServerSidePropsContext } from "next";
-import { Cheat, client } from "../utils/meili";
+import { client } from "../utils/meili";
 import type { Hit } from "../utils/meili";
 import FileSaver from "file-saver";
 import { SingleCheatDownloadModal } from "../components/SingleCheatDownloadModal";
 import { Badge } from "../components/Badge";
+import Head from "next/head";
+import { Copy } from "../components/Copy";
+import { SingleViewModal } from "../components/SingleCheatViewModal";
 
 export const fileSaverOpts = {
   type: "text/plain;charset=utf-8",
@@ -35,6 +38,9 @@ ${game.cheats
   const hasCodes = game.cheats.some((c) => c.code);
   return (
     <>
+      <Head>
+        <title>RetroCheats DB - {game.game}</title>
+      </Head>
       <div className="flex justify-between items-top mb-8">
         <div>
           <h1 className="text-6xl mb-0">{game.game}</h1>
@@ -43,50 +49,70 @@ ${game.cheats
         </div>
         <div className={`${hasCodes && "btn-group"}`}>
           {hasCodes && (
-            <button className="btn" onClick={downloadAllAsTxt}>
+            <button className="btn min-w-[160px]" onClick={downloadAllAsTxt}>
               Download all as TXT
             </button>
           )}
-          <button className="btn" onClick={downloadAllAsCHT}>
+          <button className="btn min-w-[160px]" onClick={downloadAllAsCHT}>
             Download all as CHT
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4 items-start">
-        {game.cheats.map((cheat, i) => (
-          <div
-            tabIndex={0}
-            className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
-          >
-            <div className="collapse-title text-xl font-medium">
-              {cheat.desc}
-            </div>
-            <div className="collapse-content">
-              <div className="mockup-code relative">
-                <label
-                  htmlFor={`${game.id}-${i}`}
-                  className="btn absolute top-2 right-2 z-10"
-                >
-                  Download
-                </label>
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Code</th>
+              <th></th>
+              <th></th>
+              {game.cheats.some((c) => c.code) && <th></th>}
+            </tr>
+          </thead>
+          <tbody>
+            {game.cheats.map((cheat, i) => (
+              <tr key={i}>
+                <td className="max-w-[200px] overflow-auto">{cheat.desc}</td>
+                <td className="max-w-[200px] overflow-auto relative">
+                  {cheat.code ? cheat.code : "-"}
+                </td>
+                {game.cheats.some((c) => c.code) && (
+                  <td>
+                    <Copy text={cheat.code} />
+                  </td>
+                )}
+                <td>
+                  <label
+                    className="cursor-pointer"
+                    htmlFor={`${game.id}-${i}-view`}
+                  >
+                    View Cheat
+                  </label>
 
-                <SingleCheatDownloadModal
-                  cheat={cheat}
-                  id={`${game.id}-${i}`}
-                  game={game}
-                />
+                  <SingleViewModal
+                    cheat={cheat}
+                    id={`${game.id}-${i}-view`}
+                    game={game}
+                  />
+                </td>
+                <td>
+                  <label
+                    className="cursor-pointer"
+                    htmlFor={`${game.id}-${i}-download`}
+                  >
+                    Download
+                  </label>
 
-                {Object.keys(cheat).map((k) => (
-                  <pre>
-                    <code>
-                      {k}: {cheat[k as keyof Cheat].toString()}
-                    </code>
-                  </pre>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+                  <SingleCheatDownloadModal
+                    cheat={cheat}
+                    id={`${game.id}-${i}-download`}
+                    game={game}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );

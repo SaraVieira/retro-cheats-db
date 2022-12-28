@@ -8,6 +8,7 @@
   "dependencies": {
     "@meilisearch/instant-meilisearch": "0.10.1",
     "@tailwindcss/typography": "^0.5.8",
+    "copy-to-clipboard": "^3.3.3",
     "daisyui": "^2.46.0",
     "file-saver": "^2.0.5",
     "instantsearch.css": "7.4.5",
