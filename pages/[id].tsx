@@ -9,7 +9,7 @@ import { Copy } from "../components/Copy";
 import { SingleViewModal } from "../components/SingleCheatViewModal";
 
 export const fileSaverOpts = {
-  type: "text/plain;charset=utf-8",
+  type: "text/plain;charset=us-ascii",
 };
 
 const Game = ({ game }: { game: Hit }) => {
@@ -41,7 +41,7 @@ ${game.cheats
       <Head>
         <title>RetroCheats DB - {game.game}</title>
       </Head>
-      <div className="flex justify-between items-top mb-8">
+      <div className="flex justify-between items-top mb-8 gap-6">
         <div>
           <h1 className="text-6xl mb-0">{game.game}</h1>
           <h2 className="text-gray-300 text-lg">{game.console}</h2>

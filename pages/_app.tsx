@@ -9,6 +9,33 @@ function MyApp({ Component, pageProps }: AppProps) {
     <div className="container m-auto max-w-6xl pb-12">
       <Head>
         <title>RetroCheats DB</title>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@NikkitaFTW" />
+        <meta
+          name="twitter:image"
+          content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg"
+        />
+
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <div className="flex justify-center py-12">
         <Link href="/">
