@@ -15,6 +15,7 @@ export const fileSaverOpts = {
 const Game = ({ game }: { game: Hit }) => {
   const downloadAllAsCHT = () => {
     var blob = new Blob([game.original], fileSaverOpts);
+    console.log(URL.createObjectURL(blob));
     FileSaver.saveAs(blob, `${game.game}.cht`);
   };
   const downloadAllAsTxt = () => {

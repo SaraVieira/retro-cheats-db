@@ -8,9 +8,10 @@ const client = new MeiliSearch({
 });
 
 const init = async () => {
-  await client.deleteIndex("_finishedGames");
-  await client.deleteIndex("Session");
-  await client.deleteIndex("VerificationToken");
+  const a = await client
+    .index("cheats")
+    .updateFilterableAttributes(["console", "game"]);
+  console.log(a);
 };
 
 init();

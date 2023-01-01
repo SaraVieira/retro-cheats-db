@@ -1,0 +1,6 @@
+cheats = 1 
+
+cheat0_desc = "Infinite Lives"
+cheat0_code = "R I 1 L 0 cdaf"
+cheat0_enable = false 
+

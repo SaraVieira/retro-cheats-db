@@ -5,7 +5,7 @@ node_modules
 /.pnp
 .pnp.js
 
-node-fetcher/cht
+# node-fetcher/cht
 
 # testing
 /coverage

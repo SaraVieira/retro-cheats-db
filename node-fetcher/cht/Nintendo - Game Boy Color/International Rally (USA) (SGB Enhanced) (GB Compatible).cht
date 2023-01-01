@@ -1,0 +1,9 @@
+cheats = 2
+
+cheat0_desc = "Max Speed"
+cheat0_code = "R I 1 L 0 0 0"
+cheat0_enable = false
+
+cheat1_desc = "Have lots of money"
+cheat1_code = "R I 1 L 0 0 0"
+cheat1_enable = false

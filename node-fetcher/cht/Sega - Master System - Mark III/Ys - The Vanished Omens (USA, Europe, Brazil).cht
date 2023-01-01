@@ -1,0 +1,90 @@
+
+cheat0_code = "R I 1 L 0 c222 ff" 
+cheat0_desc = "Maximum HP/HP Is Infinite"
+cheat0_enable = false
+
+cheat1_code = "R I 1 L 0 c223 ff" 
+cheat1_desc = "Maximum Str"
+cheat1_enable = false
+
+cheat2_code = "R I 1 L 0 c224 ff" 
+cheat2_desc = "Maximum Def"
+cheat2_enable = false
+
+cheat3_code = "R I 1 L 0 c225 ff" 
+cheat3_desc = "Maximum Gold/Gold Is Infinite"
+cheat3_enable = false
+
+cheat4_code = "R I 1 L 0 c226 ff" 
+cheat4_desc = "Maximum Gold/Gold Is Infinite"
+cheat4_enable = false
+
+cheat5_code = "R I 1 L 0 c227 ff" 
+cheat5_desc = "Maximum Experience"
+cheat5_enable = false
+
+cheat6_code = "R I 1 L 0 c228 ff" 
+cheat6_desc = "Maximum Experience"
+cheat6_enable = false
+
+cheat7_code = "R I 1 L 0 c1a4 81"
+cheat7_desc = "Short Sword"
+cheat7_enable = false
+
+cheat8_code = "R I 1 L 0 c1a5 81"
+cheat8_desc = "Long Sword"
+cheat8_enable = false
+
+cheat9_code = "R I 1 L 0 c1a6 81"
+cheat9_desc = "Talwarl"
+cheat9_enable = false
+
+cheat10_code = "R I 1 L 0 c1a7 81"
+cheat10_desc = "Silver Sword"
+cheat10_enable = false
+
+cheat11_code = "R I 1 L 0 c1a8 81"
+cheat11_desc = "Flame Sword"
+cheat11_enabled = false 
+
+cheat12_code = "R I 1 L 0 c1b6 81" 
+cheat12_desc = "Potion"
+cheat12_enabled = false 
+
+cheat13_code = "R I 1 L 0 c1b7 81" 
+cheat13_desc = "Wing"
+cheat13_enabled = false 
+
+cheat14_code = "R I 1 L 0 c1b8 81" 
+cheat14_desc = "Mirror"
+cheat14_enabled = false 
+
+cheat15_code = "R I 1 L 0 c18e f "
+cheat15_desc = "Infinite Health"
+cheat15_enabled = false 
+
+cheat16_code = "R I 1 L 0 c222 f "
+cheat16_desc = "Infinite Health"
+cheat16_enabled = false 
+
+cheat17_code = "C I 1 L 0 4929 3a 32"
+cheat17_desc = "Infinite HP"
+cheat17_enabled = false 
+
+cheat18_code = "C I 1 L 0 3eac 2a 22"
+cheat18_desc = "Infinite Gold"
+cheat18_enabled = false 
+
+cheat19_code = "C I 1 L 0 ef 9 3"
+cheat19_enabled = false 
+cheat19_desc = "Start a new game with ?? Gold"
+
+cheat20_code = "R I 1 L 0 c22a ff" 
+cheat20_desc = "Infinite/Max HP"
+cheat20_enabled = false
+
+cheat21_code = "R I 1 L 0 c22 ff" 
+cheat21_enabled = false
+cheat21_desc = "Infinite/Max HP"
+
+cheats = 22 

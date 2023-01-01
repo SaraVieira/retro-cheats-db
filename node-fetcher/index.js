@@ -33,6 +33,8 @@ async function fromDir(startPath, filter) {
         .filter((a) => a)
         .join("\n");
 
+      if (!a) return;
+
       const json = TOML.parse(a);
       const formatted = Array.from(Array(parseInt(json.cheats)).keys()).reduce(
         (acc, curr) => {
