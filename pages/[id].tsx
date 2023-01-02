@@ -65,7 +65,7 @@ ${game.cheats
             <tr>
               <th>Description</th>
               <th>Code</th>
-              <th className="hidden sm:block"></th>
+              <th className="hidden sm:table-cell"></th>
               <th></th>
               {game.cheats.some((c) => c.code) && <th></th>}
             </tr>
@@ -74,7 +74,7 @@ ${game.cheats
             {game.cheats.map((cheat, i) => (
               <tr key={i}>
                 <td className="max-w-[200px] overflow-auto">{cheat.desc}</td>
-                <td className="hidden sm:block max-w-[200px] overflow-auto relative">
+                <td className="hidden sm:table-cell max-w-[200px] overflow-auto relative">
                   {cheat.code ? cheat.code : "-"}
                 </td>
                 {game.cheats.some((c) => c.code) && (
