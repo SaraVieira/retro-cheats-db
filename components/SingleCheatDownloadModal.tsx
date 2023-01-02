@@ -23,7 +23,9 @@ export const SingleCheatDownloadModal = ({
   }, []);
 
   const downloadAsCht = () => {
-    var blob = new Blob([json2toml({ code: cheat })], fileSaverOpts);
+    var blob = new Blob([json2toml({ code: cheat })], {
+      type: "text/cht;charset=us-ascii",
+    });
     FileSaver.saveAs(blob, `${romName}.cht`);
   };
 

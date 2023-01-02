@@ -14,7 +14,9 @@ export const fileSaverOpts = {
 
 const Game = ({ game }: { game: Hit }) => {
   const downloadAllAsCHT = () => {
-    var blob = new Blob([game.original], fileSaverOpts);
+    var blob = new Blob([game.original], {
+      type: "text/cht;charset=us-ascii",
+    });
     console.log(URL.createObjectURL(blob));
     FileSaver.saveAs(blob, `${game.game}.cht`);
   };
