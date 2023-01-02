@@ -1,46 +1,34 @@
-import { isPlainObject, isEmpty, isDate } from 'lodash-es'
+import { isPlainObject, isEmpty } from 'lodash-es'
 
 
-function format(obj: any): string {
-    return JSON.stringify(obj);
-}
+const format = (obj: any) => JSON.stringify(obj);
+
+const isArrayOfTables = (simplePairs: any[]) => simplePairs.some((array) => Array.isArray(array[1]) && isPlainObject(array[1][0]))
 
 
-function isArrayOfTables(simplePairs: any[]): boolean {
-    return simplePairs.some(function (array) {
-        const value = array[1];
-        return Array.isArray(value) && isPlainObject(value[0]);
-    });
-}
+const isObjectArrayOfTables = (obj: any[]): boolean => Array.isArray(obj) && obj.length === 2 && isPlainObject(obj[1][0])
 
 
-function isObjectArrayOfTables(obj: any[]): boolean {
-    return Array.isArray(obj) && obj.length === 2 && isPlainObject(obj[1][0]);
-}
+const isLastObjectArrayOfTables = (simplePairs: any[]) => isObjectArrayOfTables(simplePairs[simplePairs.length - 1]);
+
+const escapeKey = (key: string) => /^[a-zA-Z0-9-_]*$/.test(key)
+    ? key
+    : `"${key}"`;
 
 
-function isLastObjectArrayOfTables(simplePairs: any[]): boolean {
-    const array = simplePairs[simplePairs.length - 1];
-    return isObjectArrayOfTables(array);
-}
-
-function escapeKey(key: string): string {
-    return /^[a-zA-Z0-9-_]*$/.test(key)
-        ? key
-        : `"${key}"`;
-}
-
-export function json2toml({
-    code,
-    options = {}
-}: {
+type Json2TomlProps = {
     code: any,
     options?: {
         indent?: number,
         newlineAfterSection?: boolean
     }
-}): string {
-    function visit(code: any, prefix: string) {
+}
+
+export const json2toml = ({
+    code,
+    options = {}
+}: Json2TomlProps): string => {
+    const visit = (code: any, prefix: string) => {
         const nestedPairs: any[] = [];
         const simplePairs: any[] = [];
         const indentStr = options.indent ? ''.padStart(options.indent, ' ') : "";
