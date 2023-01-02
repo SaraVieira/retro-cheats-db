@@ -36,6 +36,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
+        <script
+          defer
+          data-domain="cheats.letsplayretro.games"
+          src="https://analytics.iamsaravieira.com/js/plausible.js"
+        ></script>
       </Head>
       <div className="flex justify-center py-12 max-w-full">
         <Link href="/">
