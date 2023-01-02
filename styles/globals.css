@@ -17,6 +17,10 @@ button {
   font-family: cartridgebold;
 }
 
+#__next {
+  @apply min-h-screen;
+}
+
 mark {
   background: #f2e64a;
 }
