@@ -42,13 +42,13 @@ ${game.cheats
       <Head>
         <title>RetroCheats DB - {game.game}</title>
       </Head>
-      <div className="flex justify-between items-top mb-8 gap-6">
+      <div className="sm:flex justify-between items-top mb-8 gap-6">
         <div>
-          <h1 className="text-6xl mb-0">{game.game}</h1>
+          <h1 className="text-5xl sm:text-6xl mb-0">{game.game}</h1>
           <h2 className="text-gray-300 text-lg">{game.console}</h2>
           <Badge game={game} />
         </div>
-        <div className={`${hasCodes && "btn-group"}`}>
+        <div className={`mt-6 sm:mt-0 ${hasCodes && "btn-group"}`}>
           {hasCodes && (
             <button className="btn min-w-[160px]" onClick={downloadAllAsTxt}>
               Download all as TXT
@@ -65,7 +65,7 @@ ${game.cheats
             <tr>
               <th>Description</th>
               <th>Code</th>
-              <th></th>
+              <th className="hidden sm:block"></th>
               <th></th>
               {game.cheats.some((c) => c.code) && <th></th>}
             </tr>
@@ -74,7 +74,7 @@ ${game.cheats
             {game.cheats.map((cheat, i) => (
               <tr key={i}>
                 <td className="max-w-[200px] overflow-auto">{cheat.desc}</td>
-                <td className="max-w-[200px] overflow-auto relative">
+                <td className="hidden sm:block max-w-[200px] overflow-auto relative">
                   {cheat.code ? cheat.code : "-"}
                 </td>
                 {game.cheats.some((c) => c.code) && (

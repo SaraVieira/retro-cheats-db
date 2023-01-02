@@ -6,7 +6,7 @@ import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="container m-auto max-w-6xl pb-12">
+    <div className="container m-auto max-w-[90%] sm:max-w-6xl pb-12">
       <Head>
         <title>RetroCheats DB</title>
         <meta name="twitter:card" content="summary_large_image" />
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div className="flex justify-center py-12">
+      <div className="flex justify-center py-12 max-w-full">
         <Link href="/">
           <Logo />
         </Link>

@@ -27,11 +27,18 @@ mark {
 }
 
 .ais-InfiniteHits-list {
-  @apply grid grid-cols-3 gap-4 items-stretch grow;
+  @apply grid grid-cols-2 sm:grid-cols-3 gap-4 items-stretch grow;
 }
 
-.ais-InfiniteHits-loadPrevious--disabled {
+.ais-InfiniteHits-loadPrevious--disabled,
+.ais-SearchBox-submit,
+.ais-SearchBox-reset,
+.ais-SearchBox-loadingIndicator {
   @apply hidden;
+}
+
+.ais-SearchBox-input {
+  @apply h-full w-full outline-none text-sm text-gray-700 !p-0 !pr-2 !border-none !rounded-none bg-transparent;
 }
 
 body .btn {
