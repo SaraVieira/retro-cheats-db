@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import {
   InstantSearch,
@@ -13,6 +12,14 @@ import {
 import { Game } from "../components/Game";
 import { SearchIcon } from "../components/SearchIcon";
 import { searchClient } from "../utils/meili";
+
+const refinementClasses = {
+  root: "form-control",
+  checkbox: "checkbox rounded",
+  label: "label gap-2 cursor-pointer justify-start",
+  labelText: "label-text",
+  count: "hidden",
+};
 
 const Home: NextPage = () => {
   const [touched, setTouched] = useState(false);
@@ -45,14 +52,14 @@ const Home: NextPage = () => {
               />
               <h2 className="text-xl my-2 block">Console</h2>
               <RefinementList
-                classNames={{
-                  root: "form-control",
-                  checkbox: "checkbox rounded",
-                  label: "label gap-2 cursor-pointer justify-start",
-                  labelText: "label-text",
-                  count: "hidden",
-                }}
+                classNames={refinementClasses}
                 attribute="console"
+                limit={50}
+              />
+              <h2 className="text-xl my-2 block">Cheat System</h2>
+              <RefinementList
+                classNames={refinementClasses}
+                attribute="system"
                 limit={50}
               />
             </div>

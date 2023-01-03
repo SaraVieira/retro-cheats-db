@@ -58,7 +58,18 @@ async function fromDir(startPath, filter) {
         },
         []
       );
+
       const id = uuidv5(filename, uuidv5.URL);
+      const gameName = cheat.split(".cht")[0];
+      let systems = [
+        "Xploder",
+        "Game Genie",
+        "GameShark",
+        "Action Replay",
+        "Code Breaker",
+        "Game Buster",
+      ];
+      let systemOfGame = systems.find((s) => gameName.includes(s));
       try {
         await client.index("cheats").getDocument(id);
       } catch {
@@ -66,19 +77,18 @@ async function fromDir(startPath, filter) {
           {
             id,
             console: consol,
-            game: cheat.split(".cht")[0],
+            game: gameName.split(` (${systemOfGame})`)[0],
+            system: systemOfGame,
             cheats: formatted,
             original: fs.readFileSync(filename, "utf8"),
           },
         ]);
         console.log(`added ${cheat}`);
+        fs.unlinkSync(filename);
       }
     }
   }
 }
-// client.deleteIndex("cheats");
-// client.createIndex("cheats");
-// client.index("cheats").updateFilterableAttributes(["console", "game"]);
 
 fromDir("./cht");
 // client.index("cheats").search("kirby");

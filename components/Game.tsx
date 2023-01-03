@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 import { Highlight } from "react-instantsearch-hooks-web";
-import type { Hit } from "../utils/meili";
+import { Hit } from "../utils/meili";
 import { Badge } from "../components/Badge";
+import { SystemBadge } from "./SystemBadge";
 
 export const Game = ({ hit }: { hit: Hit }) => {
   const newHit = {
@@ -18,6 +19,7 @@ export const Game = ({ hit }: { hit: Hit }) => {
       <div className="min-w-0 flex-1">
         <Link href={newHit.id} className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />
+          <SystemBadge game={newHit} />
           <p className="text-sm font-medium text-gray-50">
             <Highlight attribute="game" hit={newHit} />
           </p>

@@ -7,6 +7,7 @@ import { Badge } from "../components/Badge";
 import Head from "next/head";
 import { Copy } from "../components/Copy";
 import { SingleViewModal } from "../components/SingleCheatViewModal";
+import { SystemBadge } from "../components/SystemBadge";
 
 export const fileSaverOpts = {
   type: "text/plain;charset=us-ascii",
@@ -48,7 +49,10 @@ ${game.cheats
         <div>
           <h1 className="text-5xl sm:text-6xl mb-0">{game.game}</h1>
           <h2 className="text-gray-300 text-lg">{game.console}</h2>
-          <Badge game={game} />
+          <div className="mr-4 inline-block">
+            <Badge game={game} />{" "}
+          </div>
+          <SystemBadge game={game} />
         </div>
         <div className={`mt-6 sm:mt-0 ${hasCodes && "btn-group"}`}>
           {hasCodes && (
